@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { ProductosComponent } from './pages/productos/productos.component';
+import { ContactoComponent } from './pages/contacto/contacto.component';
+import { PasarelaComponent } from './pages/pasarela/pasarela.component';
+import { DetalleProductoComponent } from './pages/detalle-producto/detalle-producto.component';
 
 const config = {
   apiKey: 'AIzaSyAvZhm3aJT2DdF3Wy4HFfsYlNbEJzMN104',
@@ -17,7 +21,7 @@ const config = {
   measurementId: 'G-SRHJ03BNQY',
 };
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ProductosComponent, ContactoComponent, PasarelaComponent, DetalleProductoComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
