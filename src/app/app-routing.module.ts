@@ -28,7 +28,7 @@ const routes: Routes = [
     path: 'detalles-productos/:id',
     component: DetalleProductoComponent,
   },
-  // si ponen cualquier url
+  // si ponen cualquier url y va al final de las rutas
   {
     path: '**',
     redirectTo: 'productos',
