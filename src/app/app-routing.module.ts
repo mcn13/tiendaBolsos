@@ -25,6 +25,7 @@ const routes: Routes = [
     component: ProductosComponent,
   },
   {
+    // es un url dinamico :id
     path: 'detalles-productos/:id',
     component: DetalleProductoComponent,
   },

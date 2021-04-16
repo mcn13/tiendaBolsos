@@ -22,7 +22,9 @@ export class ProductosComponent implements OnInit {
   }
   navegar(i) {
     console.log('navegando', i);
+    // diferencia navigaterByUrl, espera un string, Navigate: te permite pasar parametros
     // navegamos a una url dinamica
-    this.router.navigate(['detalle-producto', i]);
+    // this.router.navigateByUrl(`detalle-producto/${i}`);
+    this.router.navigate(['detalles-productos', i]);
   }
 }
