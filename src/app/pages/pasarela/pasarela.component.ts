@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-pasarela',
@@ -13,7 +14,11 @@ export class PasarelaComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 
-  constructor(private location: Location, private _formBuilder: FormBuilder) {}
+  constructor(
+    private location: Location,
+    private _formBuilder: FormBuilder,
+    private db: AngularFirestore
+  ) {}
 
   ngOnInit(): void {
     this.firstFormGroup = this._formBuilder.group({
@@ -26,7 +31,14 @@ export class PasarelaComponent implements OnInit {
       secondCtrl: ['', Validators.required],
     });
   }
+  guardar() {
+    //  extraemos datos del formulario
+    const data = this.firstFormGroup.value;
+    console.log('data', data);
 
+    // insertar en la base de datos
+    this.db.collection('pedidos').add(data);
+  }
   volver() {
     // te lleva hacia la pagina anterior
     this.location.back();
