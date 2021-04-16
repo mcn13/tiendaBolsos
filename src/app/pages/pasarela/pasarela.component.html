@@ -13,18 +13,54 @@
 <mat-vertical-stepper [linear]="isLinear" #stepper>
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Fill out your name</ng-template>
-      <mat-form-field>
-        <mat-label>Name</mat-label>
+      <ng-template matStepLabel>Datos de contacto / entrega</ng-template>
+      <mat-form-field appearance="outline" class="form">
+        <mat-label>Nombre</mat-label>
         <input
           matInput
-          placeholder="Last name, First name"
-          formControlName="firstCtrl"
+          placeholder="Nombre y apellidos"
+          formControlName="nombre"
           required
         />
+        <mat-icon matPrefix class="error">warning</mat-icon>
       </mat-form-field>
+      <ng-template matStepLabel>Nombre</ng-template>
+
+      <mat-form-field appearance="outline" class="form">
+        <mat-label>Dirección</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="direccion"
+          placeholder="Dirección de entrega"
+        />
+        <mat-icon matPrefix class="error">warning</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form">
+        <mat-label>Teléfono</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="telefono"
+          placeholder="Teléfono de contacto"
+        />
+        <mat-icon matPrefix class="error">warning</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="email"
+          placeholder="Email de contacto"
+        />
+        <mat-icon matPrefix class="error">warning</mat-icon>
+      </mat-form-field>
+
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperNext>Siguiente</button>
       </div>
     </form>
   </mat-step>

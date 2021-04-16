@@ -5,3 +5,11 @@
 .mat-form-field {
   margin-top: 16px;
 }
+.container {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-top: 20px;
+  padding: 20px 0 20px 0;
+}
