@@ -22,15 +22,16 @@ export class PasarelaComponent implements OnInit {
 
   ngOnInit(): void {
     this.firstFormGroup = this._formBuilder.group({
-      nombre: ['', Validators.required],
+      nombre: ['', Validators.required, Validators.maxLength(50)],
       direccion: ['', Validators.required],
       telefono: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', Validators.required, Validators.email],
     });
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required],
     });
   }
+
   guardar() {
     //  extraemos datos del formulario
     const data = this.firstFormGroup.value;

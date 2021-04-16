@@ -41,9 +41,12 @@
         <mat-label>Teléfono</mat-label>
         <input
           matInput
-          type="number"
           formControlName="telefono"
-          placeholder="Teléfono de contacto"
+          onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"
+          min="1"
+          maxlength="9"
+          type="text"
+          placeholder="Número de teléfono"
         />
         <mat-icon matPrefix class="error">warning</mat-icon>
       </mat-form-field>
