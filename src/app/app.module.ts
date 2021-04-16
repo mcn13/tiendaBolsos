@@ -10,6 +10,9 @@ import { ProductosComponent } from './pages/productos/productos.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { PasarelaComponent } from './pages/pasarela/pasarela.component';
 import { DetalleProductoComponent } from './pages/detalle-producto/detalle-producto.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 const config = {
   apiKey: 'AIzaSyAvZhm3aJT2DdF3Wy4HFfsYlNbEJzMN104',
@@ -21,12 +24,21 @@ const config = {
   measurementId: 'G-SRHJ03BNQY',
 };
 @NgModule({
-  declarations: [AppComponent, ProductosComponent, ContactoComponent, PasarelaComponent, DetalleProductoComponent],
+  declarations: [
+    AppComponent,
+    ProductosComponent,
+    ContactoComponent,
+    PasarelaComponent,
+    DetalleProductoComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(config),
-    AngularFirestoreModule, // firestore
+    AngularFirestoreModule,
+    BrowserAnimationsModule, // firestore,
+    MatCardModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
