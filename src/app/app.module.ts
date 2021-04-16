@@ -12,7 +12,12 @@ import { PasarelaComponent } from './pages/pasarela/pasarela.component';
 import { DetalleProductoComponent } from './pages/detalle-producto/detalle-producto.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatListModule } from '@angular/material/list';
 
 const config = {
   apiKey: 'AIzaSyAvZhm3aJT2DdF3Wy4HFfsYlNbEJzMN104',
@@ -39,6 +44,11 @@ const config = {
     BrowserAnimationsModule, // firestore,
     MatCardModule,
     MatGridListModule,
+    MatIconModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatListModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
