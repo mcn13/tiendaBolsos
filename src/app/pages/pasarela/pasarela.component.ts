@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pasarela',
@@ -9,9 +9,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./pasarela.component.scss'],
 })
 export class PasarelaComponent implements OnInit {
-  constructor(private router: Router, private location: Location) {}
+  isLinear = false;
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+  constructor(private location: Location, private _formBuilder: FormBuilder) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.firstFormGroup = this._formBuilder.group({
+      firstCtrl: ['', Validators.required],
+    });
+    this.secondFormGroup = this._formBuilder.group({
+      secondCtrl: ['', Validators.required],
+    });
+  }
 
   volver() {
     // te lleva hacia la pagina anterior
