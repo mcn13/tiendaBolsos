@@ -18,7 +18,7 @@ export class DetalleProductoComponent implements OnInit {
     // partimos la ruta y obtenemos la id del producto
     // el split lo parte por donde esta la / y buscamos la parte "2" seria 3
     this.idProducto = this.router.url.split('/')[2];
-    // capturamos el producto
+    // capturamos el producto, utilizando el id sacado de la url
     this.db
       .collection('productos')
       .doc(this.idProducto)
