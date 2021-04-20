@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 
+// PAYPAL
+import { render } from 'creditcardpayments/creditCardPayments';
 @Component({
   selector: 'app-pasarela',
   templateUrl: './pasarela.component.html',
@@ -18,7 +20,16 @@ export class PasarelaComponent implements OnInit {
     private location: Location,
     private _formBuilder: FormBuilder,
     private db: AngularFirestore
-  ) {}
+  ) {
+    render({
+      id: '#myPaypalButtons',
+      currency: 'EUR',
+      value: '10.00',
+      onApprove: (details) => {
+        alert('compra exitosa');
+      },
+    });
+  }
 
   ngOnInit(): void {
     this.firstFormGroup = this._formBuilder.group({
