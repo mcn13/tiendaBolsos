@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,7 +9,8 @@ import { Router } from '@angular/router';
 })
 export class DetalleProductoComponent implements OnInit {
   idProducto;
-  constructor(private router: Router) {}
+  producto;
+  constructor(private router: Router, private db: AngularFirestore) {}
 
   ngOnInit(): void {
     // obtenes la ruta.
@@ -16,6 +18,16 @@ export class DetalleProductoComponent implements OnInit {
     // partimos la ruta y obtenemos la id del producto
     // el split lo parte por donde esta la / y buscamos la parte "2" seria 3
     this.idProducto = this.router.url.split('/')[2];
+    // capturamos el producto
+    this.db
+      .collection('productos')
+      .doc(this.idProducto)
+      .get()
+      .toPromise()
+      .then((productoDeLaBaseDeDatos) => {
+        console.log('prducto', productoDeLaBaseDeDatos.data());
+        this.producto = productoDeLaBaseDeDatos.data();
+      });
   }
 
   volver() {

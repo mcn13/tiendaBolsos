@@ -8,16 +8,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./productos.component.scss'],
 })
 export class ProductosComponent implements OnInit {
-  bolsos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+  productos = [];
   constructor(private db: AngularFirestore, private router: Router) {}
 
   ngOnInit(): void {
     // conectamos con la base de datos
     this.db
-      .collection('bolsos')
+      .collection('productos')
       .valueChanges()
       .subscribe((res) => {
         console.log('res', res);
+        this.productos = res;
       });
   }
   navegar(i) {

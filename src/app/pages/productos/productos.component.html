@@ -1,19 +1,15 @@
 <mat-grid-list cols="4" rowHeight="1:1.5">
-  <mat-grid-tile *ngFor="let i of bolsos">
-    <mat-card class="example-card" (click)="navegar(i)">
+  <mat-grid-tile *ngFor="let i of productos">
+    <mat-card class="example-card" (click)="navegar(i.url)">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        <mat-card-title>{{ i.nombre }}</mat-card-title>
+        <mat-card-subtitle>{{ i.precio }}€</mat-card-subtitle>
       </mat-card-header>
-      <img
-        mat-card-image
-        src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-        alt="Photo of a Shiba Inu"
-      />
+      <img mat-card-image src="/assets/img/{{ i.img[0] }}" alt="producto" />
       <mat-card-content>
         <p>
-          {{ i }}
+          {{ i.descripcion }}
         </p>
       </mat-card-content>
       <mat-card-actions>
