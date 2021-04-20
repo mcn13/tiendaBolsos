@@ -4,11 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod --aot --outputHashing=all",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "d": "sudo npm run build --prod && firebase deploy --only hosting"
+    "d": "sudo npm run build && firebase deploy --only hosting"
   },
   "private": true,
   "dependencies": {

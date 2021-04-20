@@ -7,9 +7,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./detalle-producto.component.scss'],
 })
 export class DetalleProductoComponent implements OnInit {
+  idProducto;
   constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // obtenes la ruta.
+    console.log('ruta,', this.router.url);
+    // partimos la ruta y obtenemos la id del producto
+    // el split lo parte por donde esta la / y buscamos la parte "2" seria 3
+    this.idProducto = this.router.url.split('/')[2];
+  }
 
   volver() {
     this.router.navigateByUrl('productos');
