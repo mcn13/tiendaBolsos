@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 // PAYPAL
@@ -11,7 +11,7 @@ import { render } from 'creditcardpayments/creditCardPayments';
   templateUrl: './pasarela.component.html',
   styleUrls: ['./pasarela.component.scss'],
 })
-export class PasarelaComponent implements OnInit {
+export class PasarelaComponent implements OnInit, AfterViewInit {
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -20,16 +20,7 @@ export class PasarelaComponent implements OnInit {
     private location: Location,
     private _formBuilder: FormBuilder,
     private db: AngularFirestore
-  ) {
-    render({
-      id: '#myPaypalButtons',
-      currency: 'EUR',
-      value: '10.00',
-      onApprove: (details) => {
-        alert('compra exitosa');
-      },
-    });
-  }
+  ) {}
 
   ngOnInit(): void {
     this.firstFormGroup = this._formBuilder.group({
@@ -40,6 +31,17 @@ export class PasarelaComponent implements OnInit {
     });
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required],
+    });
+  }
+
+  ngAfterViewInit(): void {
+    render({
+      id: '#myPaypalButtons',
+      currency: 'USD',
+      value: '10.00',
+      onApprove: (details) => {
+        alert('compra exitosa');
+      },
     });
   }
 

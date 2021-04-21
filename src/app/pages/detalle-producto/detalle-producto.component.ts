@@ -1,40 +1,87 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { cestaItem } from '../../interfaces/cestaItem';
+import { CestaService } from '../../services/cesta.service';
 
 @Component({
-  selector: 'app-detalle-producto',
-  templateUrl: './detalle-producto.component.html',
-  styleUrls: ['./detalle-producto.component.scss'],
+selector: 'app-detalle-producto',
+templateUrl: './detalle-producto.component.html',
+styleUrls: ['./detalle-producto.component.scss']
 })
 export class DetalleProductoComponent implements OnInit {
-  idProducto;
-  producto;
-  constructor(private router: Router, private db: AngularFirestore) {}
 
-  ngOnInit(): void {
-    // obtenes la ruta.
-    console.log('ruta,', this.router.url);
-    // partimos la ruta y obtenemos la id del producto
-    // el split lo parte por donde esta la / y buscamos la parte "2" seria 3
-    this.idProducto = this.router.url.split('/')[2];
-    // capturamos el producto, utilizando el id sacado de la url
-    this.db
-      .collection('productos')
-      .doc(this.idProducto)
-      .get()
-      .toPromise()
-      .then((productoDeLaBaseDeDatos) => {
-        console.log('prducto', productoDeLaBaseDeDatos.data());
-        this.producto = productoDeLaBaseDeDatos.data();
-      });
-  }
+idProducto;
+producto;
+color;
+cantidad = 1;
 
-  volver() {
-    this.router.navigateByUrl('productos');
-  }
 
-  pasarela() {
-    this.router.navigateByUrl('pasarela');
-  }
+constructor(
+private router: Router,
+private afs: AngularFirestore,
+private cestaServ: CestaService
+) { }
+
+ngOnInit(): void {
+this.idProducto = this.router.url.split('/')[2];
+this.afs.collection('productos').doc(this.idProducto).get().toPromise().then((productoDelaBaseDeDatos)=>{
+this.producto = productoDelaBaseDeDatos.data();
+})
+
+
+}
+
+volver(){
+this.router.navigateByUrl('productos')
+}
+
+pagar(){
+this.router.navigateByUrl('pasarela')
+}
+
+seleccionoColor(color:string){
+console.log('COLOR', color);
+this.color = color;
+
+
+}
+
+agregar(){
+console.log('AGREGAR');
+const item: cestaItem = {
+id: this.idProducto,
+color: this.color,
+cantidad: this.cantidad
+}
+
+console.log('cestaItem', item);
+this.cestaServ.addProductoToArray(item);
+
+}
+
+add(){
+// añadir 1
+console.log('add');
+this.cantidad += 1;
+}
+
+remove(){
+// quitar 1
+console.log('remove');
+/*
+if( this.cantidad === 0){
+return
+}else{
+this.cantidad -=1;
+} */
+
+
+this.cantidad === 0 ? null : this.cantidad -=1
+
+
+
+}
+
+
 }

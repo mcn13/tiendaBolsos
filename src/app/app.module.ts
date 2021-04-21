@@ -23,6 +23,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatChipsModule } from '@angular/material/chips';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const config = {
@@ -60,6 +61,8 @@ const config = {
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatChipsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],
