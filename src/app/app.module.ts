@@ -24,14 +24,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const config = {
-  apiKey: 'AIzaSyAvZhm3aJT2DdF3Wy4HFfsYlNbEJzMN104',
-  authDomain: 'tienda-bolsos.firebaseapp.com',
-  projectId: 'tienda-bolsos',
-  storageBucket: 'tienda-bolsos.appspot.com',
-  messagingSenderId: '1020550770465',
-  appId: '1:1020550770465:web:2c74126da53cd1cc471860',
-  measurementId: 'G-SRHJ03BNQY',
+  apiKey: "AIzaSyAVW9QjoHAUfU8qp0aiQkcNThGV44StzH8",
+  authDomain: "tiendaropa-776e3.firebaseapp.com",
+  projectId: "tiendaropa-776e3",
+  storageBucket: "tiendaropa-776e3.appspot.com",
+  messagingSenderId: "91720841276",
+  appId: "1:91720841276:web:765a6b9280f8a8ce50ab39",
+  measurementId: "G-F8GG49BP2S"
 };
 @NgModule({
   declarations: [
