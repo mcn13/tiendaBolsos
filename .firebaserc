@@ -1,12 +1,12 @@
 {
   "projects": {
-    "default": "tienda-bolsos"
+    "default": "tiendaRopa"
   },
   "targets": {
-    "tienda-bolsos": {
+    "tiendaRopa": {
       "hosting": {
-        "tienda-bolsos": [
-          "tienda-bolsos"
+        "tiendaRopa": [
+          "tiendaRopa"
         ]
       }
     }
