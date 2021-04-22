@@ -15,55 +15,58 @@ export class CestaService {
   precioActual$ = this.precioObservable.asObservable(); // aqui es donde me voy a tener que subscribir;
 
 
-  cambiarPrecio(precio){
-    this.precioObservable.next(precio)
+  cambiarTotalAPagar(importeFinal){
+  this.precioObservable.next(importeFinal);
   }
 
   precioFinal(cestaItem: cestaItem){
-    return cestaItem.precioOferta || cestaItem.precio
+  return cestaItem.precioOferta || cestaItem.precio
   }
 
-
-  constructor() { }
 
   getProductos(){
   // obtener productos
   return this.productos
   }
 
+
   setProductos(productos: cestaItem[]){
   // establecer productos
   this.productos = [...productos];
   }
 
-  calcularImporteFinal(){
-    let sumatorio = 0;
-    this.productos.forEach((producto: cestaItem)=>{
-    sumatorio += ( this.precioFinal(producto) * producto.cantidad ) ///producto.
-    })
-    return sumatorio
+
+
+  calcularImporteFinal():number{
+  let sumatorio = 0;
+  this.productos.forEach((producto: cestaItem)=>{
+  sumatorio += ( this.precioFinal(producto) * producto.cantidad ) ///producto.
+  })
+  return sumatorio
   }
+
+
 
   addProductoToArray(producto: cestaItem ){
-    // añadir producto
-    this.productos.push(producto);
-
-    // aqui hay que hacer alguna logica para sumar el precio;
-
-    const importeFinal = this.calcularImporteFinal();
-
-    // const precio = this.precioFinal(producto);
-    // console.log('precio', precio)
-    // const importe = precio * producto.cantidad;
-    // console.log('importe', importe);
-
+  // añadir producto
+  this.productos.push(producto);
+  // aqui hay que hacer alguna logica para sumar el precio;
+  this.cambiarTotalAPagar( this.calcularImporteFinal() )
   }
+
+
 
 
   deleteProductOfArray(item: cestaItem){
-  this.productos.splice(this.productos.indexOf(item), 1);
-  }
 
+  // splice quita el elemento del array
+  this.productos.splice(this.productos.indexOf(item), 1)
+  this.cambiarTotalAPagar( this.calcularImporteFinal() )
+  // aqui habra que hacer alguna logica para restar el precio;
+
+
+
+  }
 
 
 }

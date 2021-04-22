@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +8,16 @@ import { AngularFirestore } from '@angular/fire/firestore';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(private db: AngularFirestore) {
-    this.db
-      .collection('a')
-      .get()
-      .toPromise()
-      .then((res) => console.log('RES', res));
+
+  constructor( private route: Router){
   }
-  title = 'tienda-bolsos';
+
+  title = 'Tienda Bolsos';
+  pasarela(){
+  this.route.navigateByUrl("pasarela");
+
+  }
+  home(){
+  this.route.navigateByUrl("productos");
+  }
 }
