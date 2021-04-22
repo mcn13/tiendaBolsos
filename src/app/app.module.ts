@@ -27,6 +27,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { CarritoComponent } from './componentes/carrito/carrito.component';
 import { ImportePagarComponent } from './componentes/importe-pagar/importe-pagar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { HeaderComponent } from './componentes/header/header.component';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const config = {
@@ -47,6 +48,7 @@ const config = {
     DetalleProductoComponent,
     CarritoComponent,
     ImportePagarComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

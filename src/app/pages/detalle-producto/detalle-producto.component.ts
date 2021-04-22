@@ -11,43 +11,55 @@ styleUrls: ['./detalle-producto.component.scss']
 })
 export class DetalleProductoComponent implements OnInit {
 
-idProducto;
-producto;
-color;
-cantidad = 1;
+  idProducto: string;
+  producto;
+  color: string;
+  cantidad: number = 1;
+  showAgregar:boolean = false;
+  showPagar:boolean = false;
 
 
-constructor(
-private router: Router,
-private afs: AngularFirestore,
-private cestaServ: CestaService
-) { }
+  constructor(
+  private router: Router,
+  private afs: AngularFirestore,
+  private cestaServ: CestaService
+  ) { }
 
-ngOnInit(): void {
-this.idProducto = this.router.url.split('/')[2];
-this.afs.collection('productos').doc(this.idProducto).get().toPromise().then((productoDelaBaseDeDatos)=>{
-this.producto = productoDelaBaseDeDatos.data();
-})
+  ngOnInit(): void {
+  this.idProducto = this.router.url.split('/')[2];
 
+  this.afs.collection('productos').doc(this.idProducto).get().toPromise().then((productoDelaBaseDeDatos)=>{
+  this.producto = productoDelaBaseDeDatos.data();
+  })
 
-}
+  this.cestaServ.importeFinal$.subscribe((importeFinal: number)=>{
+  this.showPagar = ( importeFinal > 0 ) ? true : false;
+  })
+  }
 
-volver(){
-this.router.navigateByUrl('productos')
-}
+  volver(){
+  this.router.navigateByUrl('productos')
+  }
 
-pagar(){
-this.router.navigateByUrl('pasarela')
-}
+  pagar(){
+  this.router.navigateByUrl('pasarela')
+  }
 
-seleccionoColor(color:string){
-console.log('COLOR', color);
-this.color = color;
-}
+  seleccionoColor(color:string){
+  this.color = color;
+  this.showAgregarF()
+  }
 
-agregar(){
-console.log('AGREGAR');
-const item: cestaItem = {
+  showAgregarF(){
+  if(this.cantidad > 0){
+  this.showAgregar = true;
+  }else{
+  this.showAgregar = false;
+  }
+  }
+
+  agregar(){
+  const item: cestaItem = {
   id: this.idProducto,
   color: this.color,
   cantidad: this.cantidad,
@@ -55,33 +67,16 @@ const item: cestaItem = {
   precioOferta: this.producto.precioOferta
   }
 
-  console.log('cestaItem', item);
   this.cestaServ.addProductoToArray(item);
+  }
 
-}
+  add(){
+  this.cantidad += 1;
+  this.showAgregarF();
+  }
 
-add(){
-// añadir 1
-console.log('add');
-this.cantidad += 1;
-}
-
-remove(){
-// quitar 1
-console.log('remove');
-/*
-if( this.cantidad === 0){
-return
-}else{
-this.cantidad -=1;
-} */
-
-
-this.cantidad === 0 ? null : this.cantidad -=1
-
-
-
-}
-
-
+  remove(){
+  this.cantidad === 0 ? null : this.cantidad -=1
+  this.showAgregarF();
+  }
 }

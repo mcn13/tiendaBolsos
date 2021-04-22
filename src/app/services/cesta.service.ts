@@ -12,7 +12,7 @@ export class CestaService {
   productos: cestaItem[] = [];
 
   private precioObservable = new BehaviorSubject<number>(0); /// creo el observable;
-  precioActual$ = this.precioObservable.asObservable(); // aqui es donde me voy a tener que subscribir;
+  importeFinal$ = this.precioObservable.asObservable(); // aqui es donde me voy a tener que subscribir;
 
 
   cambiarTotalAPagar(importeFinal){

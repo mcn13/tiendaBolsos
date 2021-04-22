@@ -46,6 +46,6 @@
 
 <button (click)="volver()">VOLVER</button>
 
-<button (click)="agregar()">AGREGAR</button>
+<button *ngIf='showAgregar' (click)="agregar()">AGREGAR</button>
 
-<button (click)="pagar()">PAGAR</button>
+<button *ngIf='showPagar' (click)="pagar()">PAGAR</button>

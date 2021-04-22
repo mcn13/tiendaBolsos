@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CestaService } from 'src/app/services/cesta.service';
 
 @Component({
   selector: 'app-importe-pagar',
@@ -7,11 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ImportePagarComponent implements OnInit {
 
-  importePagar = 0
+  importePagar: number = 0
 
-  constructor() { }
+
+  constructor( private cestaServ: CestaService) { }
 
   ngOnInit(): void {
+  /// me voy a subscribir al observable que me va a notificar de los cambios del importe a pagar:
+  this.cestaServ.importeFinal$.subscribe((imp:number)=>{
+  this.importePagar = imp;
+  })
   }
 
 }
