@@ -43,8 +43,6 @@ this.router.navigateByUrl('pasarela')
 seleccionoColor(color:string){
 console.log('COLOR', color);
 this.color = color;
-
-
 }
 
 agregar(){

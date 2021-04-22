@@ -6,27 +6,32 @@ import { cestaItem } from '../interfaces/cestaItem';
 })
 export class CestaService {
 
-  productos: any[];
+  productos: cestaItem[] = [];
+
 
   constructor() { }
 
   getProductos(){
-    //obtener productos
-    return this.productos
+  // obtener productos
+  return this.productos
   }
 
-  setProductos(productos: any[]){
-    //estableces productos
-    return this.productos = new Array(productos);
+  setProductos(productos: cestaItem[]){
+  // establecer productos
+  this.productos = [...productos];
   }
 
-  addProductoToArray(productos: cestaItem){
-    //añadir productos
-    this.productos.push(productos);
-    console.log('array cesta', this.productos)
+  addProductoToArray(producto: cestaItem ){
+  // añadir producto
+  this.productos.push(producto);
+  console.log('array cesta', this.productos)
   }
 
-  deleteProductoArray(idproducto){
+
+  deleteProductOfArray(item: cestaItem){
+  this.productos.splice(this.productos.indexOf(item), 1);
+  }
+
+
 
   }
-}

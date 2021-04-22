@@ -24,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
+import { CarritoComponent } from './componentes/carrito/carrito.component';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const config = {
@@ -42,6 +43,7 @@ const config = {
     ContactoComponent,
     PasarelaComponent,
     DetalleProductoComponent,
+    CarritoComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +63,8 @@ const config = {
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatChipsModule
+    MatChipsModule,
+    
 
   ],
   providers: [],
