@@ -48,13 +48,15 @@ this.color = color;
 agregar(){
 console.log('AGREGAR');
 const item: cestaItem = {
-id: this.idProducto,
-color: this.color,
-cantidad: this.cantidad
-}
+  id: this.idProducto,
+  color: this.color,
+  cantidad: this.cantidad,
+  precio: this.producto.precio,
+  precioOferta: this.producto.precioOferta
+  }
 
-console.log('cestaItem', item);
-this.cestaServ.addProductoToArray(item);
+  console.log('cestaItem', item);
+  this.cestaServ.addProductoToArray(item);
 
 }
 
