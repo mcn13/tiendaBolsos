@@ -28,6 +28,14 @@ import { CarritoComponent } from './componentes/carrito/carrito.component';
 import { ImportePagarComponent } from './componentes/importe-pagar/importe-pagar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HeaderComponent } from './componentes/header/header.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { FiltrosComponent } from './components/filtros/filtros.component';
+import {MatSelectModule} from '@angular/material/select';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+
+
+
+
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const config = {
@@ -49,6 +57,7 @@ const config = {
     CarritoComponent,
     ImportePagarComponent,
     HeaderComponent,
+    FiltrosComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +79,10 @@ const config = {
     ReactiveFormsModule,
     MatChipsModule,
     MatToolbarModule,
+    MatSnackBarModule,
+    MatSelectModule,
+    NgxSliderModule
+
 
 
   ],

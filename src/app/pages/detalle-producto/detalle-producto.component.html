@@ -12,7 +12,7 @@
 
 <h1> {{ producto?.nombre }} </h1>
 <!-- 10-->
-<h2>{{ producto?.precio }} </h2>
+<h2>{{ producto?.precioOferta || producto?.precio }} </h2>
 
 <div *ngIf="producto">
   <div *ngFor="let i of producto.img">
@@ -34,8 +34,8 @@
 <mat-form-field *ngIf="color" appearance="outline">
 <mat-label>{{color | titlecase }}</mat-label>
 <input onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" min="0" maxlength="9" type="number" [(ngModel)]="cantidad" matInput placeholder="Cantidad">
-<mat-icon matSuffix class="{{ color }}-icon" (click)="add()">add_circle</mat-icon>
-<mat-icon matPrefix class=" {{ color }}-icon" (click)="remove()">remove_circle</mat-icon>
+<mat-icon style="cursor: pointer" matSuffix class="{{ color }}-icon" (click)="add()">add_circle</mat-icon>
+<mat-icon style="cursor: pointer" matPrefix class=" {{ color }}-icon" (click)="remove()">remove_circle</mat-icon>
 
 </mat-form-field>
 </div>
