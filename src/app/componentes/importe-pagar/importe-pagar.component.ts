@@ -8,7 +8,7 @@ import { CestaService } from 'src/app/services/cesta.service';
 })
 export class ImportePagarComponent implements OnInit {
 
-  importePagar: number = 0
+  importePagar: number = localStorage.getItem('importePagar') ? parseInt(localStorage.getItem('importePagar')): 0
 
 
   constructor( private cestaServ: CestaService) { }
@@ -16,7 +16,8 @@ export class ImportePagarComponent implements OnInit {
   ngOnInit(): void {
   /// me voy a subscribir al observable que me va a notificar de los cambios del importe a pagar:
   this.cestaServ.importeFinal$.subscribe((imp:number)=>{
-  this.importePagar = imp;
+    this.importePagar = imp;
+    localStorage.setItem('importePagar', imp.toString())
   })
   }
 

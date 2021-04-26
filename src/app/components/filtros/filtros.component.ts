@@ -33,8 +33,10 @@ export class FiltrosComponent implements OnInit {
 
   options: Options = {
   floor: 0,
-  ceil: 200
+  ceil: 200,
+
   };
+
 
   constructor() { }
 
@@ -97,7 +99,7 @@ export class FiltrosComponent implements OnInit {
   }
 
 
-
+  
 
 
 

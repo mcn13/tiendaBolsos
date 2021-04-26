@@ -68,9 +68,8 @@ export class ProductosComponent implements OnInit {
   }
 
   filtrarColor(array: producto[], filtro: Filtro): producto[]{
-    const color = filtro.color
-
-    if(!color){
+    const color = filtro.color;
+    if(!color || (color === 'todos')){
       return array
     }else{
         return array.filter((producto: producto)=>{
@@ -83,7 +82,7 @@ export class ProductosComponent implements OnInit {
 
   filtrarTipo(array: producto[], filtro: Filtro): producto[]{
     const tipo = filtro.tipo;
-    if(!tipo){
+    if(!tipo|| (tipo === 'todos') ){
       return array
     }else{
       return array.filter((producto:producto)=>{

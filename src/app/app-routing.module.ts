@@ -26,7 +26,7 @@ const routes: Routes = [
   },
   {
     // es un url dinamico :id
-    path: 'detalles-productos/:id',
+    path: 'detalle-producto/:id',
     component: DetalleProductoComponent,
   },
   // si ponen cualquier url y va al final de las rutas

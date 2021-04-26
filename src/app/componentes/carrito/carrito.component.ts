@@ -26,4 +26,10 @@ deleteItem(cestaItem: cestaItem){
 this.cestaServ.deleteProductOfArray(cestaItem)
 }
 
+guardarLocalStorage(){
+  const arrayCesta = this.cestaServ.getProductos();
+  console.log('STRINGIFIED ARRAYCESTA', JSON.stringify(arrayCesta));
+  localStorage.setItem('arrayCesta', JSON.stringify(arrayCesta))
+}
+
 }

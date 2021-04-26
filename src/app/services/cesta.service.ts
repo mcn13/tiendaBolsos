@@ -13,7 +13,7 @@ export class CestaService {
 
   productos: cestaItem[] = [];
 
-  private importeObservable = new BehaviorSubject<number>(0); /// creo el observable;
+  private importeObservable = new BehaviorSubject<number>( localStorage.getItem('importePagar') ? parseInt(localStorage.getItem('importePagar')) : 0); /// creo el observable;
   importeFinal$ = this.importeObservable.asObservable(); // aqui es donde me voy a tener que subscribir;
 
 
@@ -84,6 +84,8 @@ export class CestaService {
 
 
   }
+
+
 
 
 

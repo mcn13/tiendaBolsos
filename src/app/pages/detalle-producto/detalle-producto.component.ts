@@ -87,4 +87,10 @@ export class DetalleProductoComponent implements OnInit {
   this.showAgregarF();
   this._snackBar.open('Producto retirado')
   }
+
+  guardarLocalStorage(){
+    const arrayCesta = this.cestaServ.getProductos();
+    console.log('STRINGIFIED ARRAYCESTA', JSON.stringify(arrayCesta));
+    localStorage.setItem('arrayCesta', JSON.stringify(arrayCesta))
+  }
 }
