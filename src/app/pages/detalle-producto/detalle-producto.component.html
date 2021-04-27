@@ -24,7 +24,7 @@
 <mat-chip-list class="mat-chip-list-stacked" aria-label="Color selection">
 
 <div *ngIf="producto">
-  <mat-chip (click)="seleccionoColor(chip)" *ngFor="let chip of producto.colores" selected class="{{ chip }}">
+  <mat-chip style="cursor: pointer" (click)="seleccionoColor(chip)" *ngFor="let chip of producto.colores" selected class="{{ chip }}">
 {{ chip | titlecase }}
 
 </mat-chip>

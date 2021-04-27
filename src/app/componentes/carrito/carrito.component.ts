@@ -24,6 +24,7 @@ deleteItem(cestaItem: cestaItem){
 // 1, en la vista he llamado al delete item yle he pasado el item
 // 2. en esta llamo al delte product of array y le paso el item
 this.cestaServ.deleteProductOfArray(cestaItem)
+this.guardarLocalStorage()
 }
 
 guardarLocalStorage(){

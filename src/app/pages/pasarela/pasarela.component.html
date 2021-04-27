@@ -11,6 +11,18 @@
   {{ !isLinear ? "Enable linear mode" : "Disable linear mode" }}
 </button> -->
 <mat-vertical-stepper [linear]="isLinear" #stepper>
+
+  <mat-step>
+    <div class="totales">
+      <p>Total a pagar</p>
+    </div>
+    <div>
+    <app-carrito></app-carrito>
+    <app-importe-pagar></app-importe-pagar>
+
+      </div>
+  </mat-step>
+
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup" class="container">
       <ng-template matStepLabel>Datos de contacto / entrega</ng-template>
@@ -94,7 +106,10 @@
     </form> -->
     <div id="myPaypalButtons"></div>
   </mat-step>
-  <mat-step>
+  <mat-list>
+
+  </mat-list>
+  <mat-step *ngIf='paid'>
     <ng-template matStepLabel>Done</ng-template>
     <p>You are now done.</p>
     <div>
