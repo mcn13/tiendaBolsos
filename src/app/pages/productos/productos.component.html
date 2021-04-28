@@ -17,11 +17,11 @@
 
   <mat-card-content>
 
-    <button (click)="selectFavorite( i )" mat-icon-button>
+    <button *ngIf='!comprobarSiEstaSeleccionado(i)' (click)="selectFavorite( i )" mat-icon-button>
       <span class="material-icons">favorite_border</span>
     </button>
 
-    <button (click)="deselectFavorite( i )" mat-icon-button>
+    <button *ngIf='comprobarSiEstaSeleccionado(i)' (click)="deselectFavorite( i )" mat-icon-button>
     <mat-icon class="pink">favorite</mat-icon>
     </button>
 

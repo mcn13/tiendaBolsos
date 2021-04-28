@@ -17,13 +17,7 @@ export class ProductosComponent implements OnInit {
     productos: producto[] = [];
     productosMostrar: producto[] = [];
     elementosFavoritos= ( localStorage.getItem('elementosFavoritos') )? localStorage.getItem('elementosFavoritos').split(',') : [] ;
-    // existe este elemento en el localStorage ? Si existe me lo asignas a esta propiedad
-
-    // si no existe le asignamos un empty array
-
-    // si existe el string, tendre que hacer algo hay un metodo aplicable alos strings,
-    // que ese string me lo va a
-    // convertir a formato array
+    mostrarFavorito: boolean = true;
 
     constructor(
 
@@ -33,7 +27,9 @@ export class ProductosComponent implements OnInit {
       ){
     }
 
-    selectFavorite(producto: producto){
+    selectFavorite(producto: producto): void{
+
+      this.mostrarFavorito = !this.mostrarFavorito;
 
       (this.elementosFavoritos.indexOf(producto.url) >= 0) ? null : this.elementosFavoritos.push( producto.url);
       localStorage.setItem('elementosFavoritos', this.elementosFavoritos.toString())
@@ -48,6 +44,8 @@ export class ProductosComponent implements OnInit {
 
         const index = this.elementosFavoritos.indexOf(producto.url);
 
+        this.mostrarFavorito = !this.mostrarFavorito;
+
         if ( index >= 0) {
           console.log('INDEX');
           this.elementosFavoritos.splice(index, 1)
@@ -55,11 +53,14 @@ export class ProductosComponent implements OnInit {
         } else {
 
         }
-
-
-
         console.log(this.elementosFavoritos);
 
+    }
+
+    comprobarSiEstaSeleccionado(producto: producto){
+
+      return (this.elementosFavoritos.indexOf(producto.url) >= 0)
+      // const estaDentroDelArray: boolean =
     }
 
 
